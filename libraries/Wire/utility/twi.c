@@ -170,7 +170,7 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
 
   // wait for read operation to complete, or timeout
   uint32_t start_us = micros();
-  while(TWI_MRX != twi_state){
+  while(TWI_MRX == twi_state){
     if (timeout){
       if (micros() - start_us > timeout_us){
       	twi_state = TWI_ERROR;
